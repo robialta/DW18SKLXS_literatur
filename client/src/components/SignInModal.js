@@ -46,7 +46,7 @@ const SignInModal = () => {
                     alert(res.data.error.message);
                 }
                 history.push(
-                    res.data.data.type == "admin" ? "/admin" : "/home"
+                    res.data.data.type === "admin" ? "/admin" : "/home"
                 );
             } else {
                 dispatch({
