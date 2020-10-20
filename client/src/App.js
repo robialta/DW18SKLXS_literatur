@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import PrivateRoute from "./components/PrivateRoute";
+import AddLiterature from "./pages/AddLiterature";
 
 if (localStorage.token) setAuthToken(localStorage.token);
 
@@ -37,6 +38,11 @@ function App() {
                 <Route exact path={"/"} component={Landing} />
                 <PrivateRoute exact path={"/home"} component={Home} />
                 <PrivateRoute exact path={"/profile"} component={Profile} />
+                <PrivateRoute
+                    exact
+                    path={"/addliterature"}
+                    component={AddLiterature}
+                />
                 <PrivateRoute
                     exact
                     path={"/search/:title"}

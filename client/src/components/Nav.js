@@ -12,7 +12,7 @@ const Nav = () => {
                     <Link to={"/"} className="nav-link">
                         My Collection
                     </Link>
-                    <Link to={"/"} className="nav-link">
+                    <Link to={"/addliterature"} className="nav-link">
                         Add Literatur
                     </Link>
                     <Link to={"/"} className="nav-link">
