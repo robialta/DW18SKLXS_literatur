@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Nav from "../components/Nav";
+import { API } from "../config/api";
 
 const Profile = () => {
     return (
