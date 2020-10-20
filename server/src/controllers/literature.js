@@ -250,49 +250,46 @@ exports.searchLiterature = async (req, res) => {
 //     }
 // };
 
-// exports.myBooks = async (req, res) => {
-//     const { id } = req.params;
-//     try {
-//         const myBooks = await Book.findAll({
-//             where: {
-//                 userId: id,
-//             },
-//             attributes: [
-//                 "id",
-//                 "title",
-//                 "publication",
-//                 "pages",
-//                 "ISBN",
-//                 "aboutBook",
-//                 "file",
-//                 "status",
-//                 "cover",
-//             ],
-//             include: [
-//                 {
-//                     model: User,
-//                     as: "user",
-//                     attributes: [
-//                         "id",
-//                         "fullName",
-//                         "email",
-//                         "phone",
-//                         "address",
-//                         "gender",
-//                     ],
-//                 },
-//                 {
-//                     model: Category,
-//                     as: "category",
-//                     attributes: ["id", "name"],
-//                 },
-//             ],
-//         });
-//         res.status(200).send({
-//             message: "Succesfully load my books",
-//             data: myBooks,
-//         });
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };
+exports.myLiteratures = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const myLiteratures = await Literature.findAll({
+            where: {
+                userId: id,
+            },
+            attributes: [
+                "id",
+                "title",
+                "publication",
+                "pages",
+                "ISBN",
+
+                "file",
+                "status",
+            ],
+            include: [
+                {
+                    model: User,
+                    as: "author",
+                    attributes: [
+                        "id",
+                        "fullName",
+                        "email",
+                        "phone",
+                        "address",
+                        "gender",
+                    ],
+                },
+            ],
+        });
+        res.status(200).send({
+            message: "Succesfully load my books",
+            data: myLiteratures,
+        });
+    } catch (error) {
+        console.log(error);
+        res.send({
+            message: `Error ${error}`,
+        });
+    }
+};

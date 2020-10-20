@@ -4,6 +4,7 @@ const {
     getLiteratures,
     addLiterature,
     searchLiterature,
+    myLiteratures,
 } = require("../controllers/literature");
 const { authenticated } = require("../middleware/authentication");
 const router = express.Router();
@@ -15,5 +16,6 @@ router.get("/auth", authenticated, checkAuth);
 router.get("/literatures", authenticated, getLiteratures);
 router.post("/literature", authenticated, addLiterature);
 router.post("/search", authenticated, searchLiterature);
+router.get("/myliteratures/:id", authenticated, myLiteratures);
 
 module.exports = router;
