@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { API, setAuthToken } from "../config/api";
+import { UserContext } from "../context/userContext";
 
 const SignInModal = () => {
-    // const history = useHistory();
-    // const [state, dispatch] = useContext(UserContext);
+    const history = useHistory();
+    const [state, dispatch] = useContext(UserContext);
     const [formData, setformData] = useState({
         email: "obyaltha@gmail.com",
         password: "Rr892195",
@@ -14,51 +16,51 @@ const SignInModal = () => {
         setformData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const config = {
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //     };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        };
 
-    //     const body = JSON.stringify({ email, password });
-    //     try {
-    //         const res = await API.post("/login", body, config);
-    //         if (res.status === 200) {
-    //             dispatch({
-    //                 type: "LOGIN_SUCCESS",
-    //                 payload: res.data.data.token,
-    //             });
-    //             setAuthToken(res.data.data.token);
-    //             try {
-    //                 const res = await API.get("/auth");
-    //                 dispatch({
-    //                     type: "USER_LOADED",
-    //                     payload: res.data.data,
-    //                 });
-    //             } catch (error) {
-    //                 dispatch({
-    //                     type: "AUTH_ERROR",
-    //                 });
-    //                 alert(res.data.error.message);
-    //             }
-    //             history.push(
-    //                 res.data.data.type == "admin" ? "/admin" : "/home"
-    //             );
-    //         } else {
-    //             dispatch({
-    //                 type: "LOGIN_FAILED",
-    //                 payload: res.data.data,
-    //             });
-    //             console.log(res.data.error.message);
-    //         }
-    //     } catch (error) {
-    //         dispatch({
-    //             type: "LOGIN_FAILED",
-    //         });
-    //     }
-    // };
+        const body = JSON.stringify({ email, password });
+        try {
+            const res = await API.post("/login", body, config);
+            if (res.status === 200) {
+                dispatch({
+                    type: "LOGIN_SUCCESS",
+                    payload: res.data.data.token,
+                });
+                setAuthToken(res.data.data.token);
+                try {
+                    const res = await API.get("/auth");
+                    dispatch({
+                        type: "USER_LOADED",
+                        payload: res.data.data,
+                    });
+                } catch (error) {
+                    dispatch({
+                        type: "AUTH_ERROR",
+                    });
+                    alert(res.data.error.message);
+                }
+                history.push(
+                    res.data.data.type == "admin" ? "/admin" : "/home"
+                );
+            } else {
+                dispatch({
+                    type: "LOGIN_FAILED",
+                    payload: res.data.data,
+                });
+                console.log(res.data.error.message);
+            }
+        } catch (error) {
+            dispatch({
+                type: "LOGIN_FAILED",
+            });
+        }
+    };
 
     return (
         <div
@@ -111,7 +113,7 @@ const SignInModal = () => {
 
                             <button
                                 onClick={(e) => {
-                                    // handleSubmit(e);
+                                    handleSubmit(e);
                                 }}
                                 data-dismiss="modal"
                                 className="btn btn-lg btn-block btn-dark mb-3"

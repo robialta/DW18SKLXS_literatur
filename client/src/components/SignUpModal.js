@@ -101,10 +101,10 @@ function SignUpModal() {
                             <select
                                 onChange={(e) => handleChange(e)}
                                 name="gender"
-                                value={gender}
+                                defaultValue={"DEFAULT"}
                                 className="custom-select custom-select-lg mb-4 bg-light"
                             >
-                                <option selected value="">
+                                <option value="DEFAULT" disabled>
                                     Gender
                                 </option>
                                 <option value="Male">Male</option>

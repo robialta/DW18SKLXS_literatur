@@ -22,16 +22,16 @@ const Landing = () => {
                             className="col-xl-12 ml-5"
                             style={{ height: "200px" }}
                         >
-                            {/* <Link to="/home"> */}
-                            <img
-                                src="./assets/logo/main.png"
-                                alt="Logo"
-                                style={{
-                                    position: "relative",
-                                    top: "-10px",
-                                }}
-                            />
-                            {/* </Link> */}
+                            <Link to="/home">
+                                <img
+                                    src="./assets/logo/main.png"
+                                    alt="Logo"
+                                    style={{
+                                        position: "relative",
+                                        top: "-10px",
+                                    }}
+                                />
+                            </Link>
                         </div>
                         <div className="col-xl-12 ml-5 pb-5" style={{}}>
                             <span
