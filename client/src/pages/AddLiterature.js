@@ -39,7 +39,7 @@ function AddLiterature() {
                 userId: state.user.id,
                 pages,
                 ISBN,
-                file: title + ".pdf",
+                file: "literature-cover.png",
                 status: "Waiting to be verified",
             });
             await API.post("/literature", body, config);
@@ -77,7 +77,7 @@ function AddLiterature() {
                     </span>
                 </div>
 
-                <div className="row pt-4">
+                <div className="row pt-4 mx-auto" style={{ width: "100%" }}>
                     <div className="col-sm-12">
                         <form>
                             <div className="form-group mb-4 pb-2">

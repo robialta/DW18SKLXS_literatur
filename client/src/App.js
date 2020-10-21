@@ -10,6 +10,8 @@ import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import PrivateRoute from "./components/PrivateRoute";
 import AddLiterature from "./pages/AddLiterature";
+import Detail from "./pages/Detail";
+import MyCollection from "./pages/MyCollection";
 
 if (localStorage.token) setAuthToken(localStorage.token);
 
@@ -38,6 +40,12 @@ function App() {
                 <Route exact path={"/"} component={Landing} />
                 <PrivateRoute exact path={"/home"} component={Home} />
                 <PrivateRoute exact path={"/profile"} component={Profile} />
+                <PrivateRoute
+                    exact
+                    path={"/mycollection"}
+                    component={MyCollection}
+                />
+                <PrivateRoute exact path={"/detail/:id"} component={Detail} />
                 <PrivateRoute
                     exact
                     path={"/addliterature"}

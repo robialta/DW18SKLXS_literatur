@@ -38,7 +38,7 @@ const Search = () => {
     }, []);
     return (
         <div>
-            <div className="row mx-auto" style={{ width: "80%" }}>
+            <div className="row mx-auto" style={{ width: "90%" }}>
                 <Nav />
 
                 <div className="col-sm-12 my-3">
@@ -77,7 +77,7 @@ const Search = () => {
                                 {literatures.map((literature, index) => (
                                     <div className="col-sm-4 " key={index}>
                                         <Link
-                                            to={`detail/`}
+                                            to={`/detail/${literature.id}`}
                                             style={{ textDecoration: "none" }}
                                         >
                                             <div
@@ -88,7 +88,7 @@ const Search = () => {
                                                 }}
                                             >
                                                 <img
-                                                    src={`../assets/img/literatur-cover.png`}
+                                                    src={`../assets/img/${literature.file}`}
                                                     className="card-img-top"
                                                     alt="lb1"
                                                 />

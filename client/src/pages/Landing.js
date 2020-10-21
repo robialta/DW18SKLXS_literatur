@@ -17,11 +17,8 @@ const Landing = () => {
         >
             <div className="row m-0">
                 <div className="col-xl-6">
-                    <div className="row pl-4 pt-4">
-                        <div
-                            className="col-xl-12 ml-5"
-                            style={{ height: "200px" }}
-                        >
+                    <div className="row  pt-4">
+                        <div className="col-xl-12 " style={{ height: "200px" }}>
                             <Link to="/home">
                                 <img
                                     src="./assets/logo/main.png"
@@ -33,7 +30,7 @@ const Landing = () => {
                                 />
                             </Link>
                         </div>
-                        <div className="col-xl-12 ml-5 pb-5" style={{}}>
+                        <div className="col-xl-12  pb-5" style={{}}>
                             <span
                                 style={{
                                     fontSize: "115px",
@@ -58,7 +55,7 @@ const Landing = () => {
                                 intelligence
                             </span>
                         </div>
-                        <div className="col-xl-7 ml-5" style={{}}>
+                        <div className="col-xl-7 " style={{}}>
                             <p
                                 style={{
                                     fontSize: "24px",
@@ -69,7 +66,7 @@ const Landing = () => {
                                 source of intelligence
                             </p>
                         </div>
-                        <div className="col-xs-9 ml-5 my-4 pl-3" style={{}}>
+                        <div className="col-xs-9  my-4 pl-3" style={{}}>
                             <button
                                 data-toggle="modal"
                                 data-target="#signupmodal"

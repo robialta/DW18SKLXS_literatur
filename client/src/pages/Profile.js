@@ -355,7 +355,7 @@ const Profile = () => {
                     <div className="row">
                         {myLiteratures.map((literature, index) => (
                             <Link
-                                to={`detail/`}
+                                to={`detail/${literature.id}`}
                                 style={{ textDecoration: "none" }}
                             >
                                 <div
@@ -368,7 +368,7 @@ const Profile = () => {
                                     }}
                                 >
                                     <img
-                                        src={`../assets/img/literatur-cover.png`}
+                                        src={`../assets/img/${literature.file}`}
                                         className="card-img-top"
                                         alt="lb1"
                                     />

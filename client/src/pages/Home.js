@@ -23,7 +23,7 @@ const Home = () => {
     };
     return (
         <div className="home">
-            <div className="row mx-auto" style={{ width: "80%" }}>
+            <div className="row mx-auto" style={{ width: "90%" }}>
                 <Nav />
                 <div className="col-sm-12 ">
                     <form className="form-inline mx-auto">
@@ -46,6 +46,10 @@ const Home = () => {
                                     placeholder="Search for literatur"
                                 />
                                 <button
+                                    style={{
+                                        backgroundColor: "#EE4622",
+                                        border: "none",
+                                    }}
                                     onClick={() => searching()}
                                     type="submit"
                                     class="btn btn-lg btn-primary mx-2"

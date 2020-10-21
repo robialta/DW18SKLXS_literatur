@@ -91,55 +91,48 @@ exports.getLiteratures = async (req, res) => {
     }
 };
 
-// exports.detailBook = async (req, res) => {
-//     try {
-//         const { id } = req.params;
-//         const detailedBook = await Book.findOne({
-//             where: {
-//                 id,
-//             },
-//             attributes: [
-//                 "id",
-//                 "title",
-//                 "publication",
-//                 "pages",
-//                 "ISBN",
-//                 "aboutBook",
-//                 "file",
-//                 "status",
-//                 "cover",
-//             ],
-//             include: [
-//                 {
-//                     model: User,
-//                     as: "user",
-//                     attributes: [
-//                         "id",
-//                         "fullName",
-//                         "email",
-//                         "phone",
-//                         "address",
-//                         "gender",
-//                     ],
-//                 },
-//                 {
-//                     model: Category,
-//                     as: "category",
-//                     attributes: ["id", "name"],
-//                 },
-//             ],
-//         });
-//         res.send({
-//             message: "Successfully get detail book",
-//             data: detailedBook,
-//         });
-//     } catch (error) {
-//         console.log(error);
-//         res.send({
-//             message: `Error get detail book ${error}`,
-//         });
-//     }
-// };
+exports.detailLiterature = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const detailedliterature = await Literature.findOne({
+            where: {
+                id,
+            },
+            attributes: [
+                "id",
+                "title",
+                "publication",
+                "pages",
+                "ISBN",
+                "file",
+                "status",
+            ],
+            include: [
+                {
+                    model: User,
+                    as: "author",
+                    attributes: [
+                        "id",
+                        "fullName",
+                        "email",
+                        "phone",
+                        "address",
+                        "gender",
+                    ],
+                },
+            ],
+        });
+        res.send({
+            message: "Successfully get detail literature",
+            data: detailedliterature,
+        });
+    } catch (error) {
+        console.log(error);
+        res.send({
+            message: `Error get detail book ${error}`,
+        });
+    }
+};
 
 exports.addLiterature = async (req, res) => {
     try {
